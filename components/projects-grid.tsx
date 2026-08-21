@@ -9,12 +9,13 @@ const projects = [
     id: 0,
     title: "RAG Over Codebase",
     description:
-      "A Retrieval-Augmented Generation application that allows users to understand and interact with a codebase using natural language. The system processes source code, creates embeddings, retrieves relevant code context, and uses a language model to answer questions about the codebase. The goal is to make it easier to explore unfamiliar projects, understand code structure, and find relevant parts of a codebase through AI-powered semantic search.",
+      "A Retrieval-Augmented Generation application that allows users to understand and interact with a codebase using natural language. The system processes source code, creates embeddings, retrieves relevant code context, and uses a language model to answer questions about the codebase.",
     tags: ["Python", "RAG", "LangChain", "Sentence Transformers", "Vector Database", "Ollama", "LLMs"],
     status: "in-progress",
     year: "Learning",
     featured: true,
     highlight: true,
+    url: "https://github.com/ar-j-un-404/rag-over-codebase",  // <-- Added
   },
   {
     id: 1,
