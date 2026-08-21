@@ -1,135 +1,75 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import { cn } from "@/lib/utils"
-import { Github, Star, GitFork, ExternalLink, Sparkles } from "lucide-react"
+import { Github, Sparkles } from "lucide-react"
 
 const projects = [
   {
     id: 0,
-    title: "EinUI",
+    title: "RAG Over Codebase",
     description:
-      "A collection of beautiful, ready-made Liquid Glass UI components you can preview, copy, and drop into any web app. Built on Tailwind, shadcn/ui, and Radix UI primitives.",
-    tags: ["TypeScript", "Next.js 16", "shadcn", "Radix UI", "Tailwind"],
+      "A Retrieval-Augmented Generation application that allows users to understand and interact with a codebase using natural language. The system processes source code, creates embeddings, retrieves relevant code context, and uses a language model to answer questions about the codebase. The goal is to make it easier to explore unfamiliar projects, understand code structure, and find relevant parts of a codebase through AI-powered semantic search.",
+    tags: ["Python", "RAG", "LangChain", "Sentence Transformers", "Vector Database", "Ollama", "LLMs"],
     status: "in-progress",
-    year: "2025",
-    stars: 50,
-    forks: 10,
-    url: "https://github.com/ehsanghaffar/einui",
-    homepage: "https://ui.eindev.ir",
+    year: "Learning",
     featured: true,
     highlight: true,
   },
   {
     id: 1,
-    title: "EinBioGPT",
+    title: "AI Lecture Slide Tutor",
     description:
-      "An intelligent web application built with Next.js, Tailwind CSS, and OpenAI's GPT models. Generates engaging and personalized bios for social media platforms.",
-    tags: ["TypeScript", "Next.js", "GPT", "LangChain"],
+      "An AI-powered learning assistant that helps students interact with lecture slides and study material. The project uses document processing, embeddings, semantic search, vector databases, and language models to answer questions based on uploaded content.",
+    tags: ["Python", "LangChain", "PyPDF", "Sentence Transformers", "ChromaDB", "Ollama"],
     status: "shipped",
-    year: "2023",
-    stars: 17,
-    forks: 8,
-    url: "https://github.com/ehsanghaffar/einbiogpt",
-    homepage: "https://bio.eindev.ir/",
+    year: "Learning",
+    url: "https://github.com/ar-j-un-404/AI_LECTURE_SLIDE_TUTOR",
     featured: true,
   },
   {
     id: 2,
-    title: "JavaScript Playground",
+    title: "Exam Question Predictor",
     description:
-      "A collection of JavaScript code snippets, algorithms, and mini-projects for learning and reference purposes.",
-    tags: ["JavaScript", "Algorithms", "Snippets"],
+      "An AI-based system that analyzes previous exam question papers to identify frequently repeated and semantically similar questions. It extracts questions from PDFs, generates embeddings using Sentence Transformers, calculates cosine similarity, groups similar questions, and identifies recurring topics.",
+    tags: ["Python", "Sentence Transformers", "Cosine Similarity", "PDF Processing"],
     status: "shipped",
-    year: "2020",
-    stars: 19,
-    forks: 5,
-    url: "https://github.com/ehsanghaffar/javascript-playground",
-    featured: false,
+    year: "Learning",
+    url: "https://github.com/ar-j-un-404/EXAM_QUESTION_PREDICTOR",
+    featured: true,
   },
   {
     id: 3,
-    title: "Next.js 16 Docker Starter",
+    title: "AI PDF Tutor",
     description:
-      "A batteries-included starter for building Next.js 16.1.0 apps with App Router, PNPM, Tailwind v4+, Next-Auth v5, and multi-stage Docker setup.",
-    tags: ["Next.js 16.1.0", "Docker", "Tailwind v4"],
-    status: "in-progress",
-    year: "2025",
-    stars: 9,
-    forks: 4,
-    url: "https://github.com/ehsanghaffar/next16-docker-tw4-starter",
-    homepage: "https://nextjs-16-docker.vercel.app",
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "Awesome Clubhouses",
-    description:
-      "Curated list of resources for Clubhouse, the voice-based social network where people come together to talk, listen and learn.",
-    tags: ["Python", "Awesome List", "Social"],
-    status: "archived",
-    year: "2022",
-    stars: 41,
-    forks: 8,
-    url: "https://github.com/ehsanghaffar/awesome-clubhouse",
-    homepage: "https://ehsanghaffar.github.io/awesome-clubhouse/",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "LLM Practice",
-    description:
-      "A self-hosted personal chatbot API with FastAPI. Interact with Llama2 and other open-source LLMs for natural language conversations.",
-    tags: ["Python", "FastAPI", "Llama2", "MCP"],
+      "An AI-powered PDF question-answering application that allows users to interact with study documents. It combines PDF text extraction, sentence embeddings, semantic retrieval, and a local language model to provide context-aware answers.",
+    tags: ["Python", "Sentence Transformers", "Ollama", "Semantic Search"],
     status: "shipped",
-    year: "2023",
-    stars: 13,
-    forks: 3,
-    url: "https://github.com/ehsanghaffar/llm-practice",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Hand-Build Linux",
-    description:
-      "A minimal, customizable Linux distribution built from scratch using the Linux kernel, BusyBox, and Syslinux bootloader.",
-    tags: ["Shell", "Linux", "Docker"],
-    status: "in-progress",
-    year: "2025",
-    stars: 8,
-    forks: 1,
-    url: "https://github.com/ehsanghaffar/handbuilt-linux",
+    year: "Learning",
+    url: "https://github.com/ar-j-un-404/AI_PDF_TUTOR",
     featured: true,
-  },
-  {
-    id: 7,
-    title: "Next.js AppDir Template",
-    description:
-      "An all-inclusive Next.js web application template showcasing seamless integration of Next.js, Docker, MongoDB, and Tailwind CSS.",
-    tags: ["TypeScript", "Next.js", "Docker", "MongoDB"],
-    status: "shipped",
-    year: "2023",
-    stars: 19,
-    forks: 6,
-    url: "https://github.com/ehsanghaffar/nextjs-appdir-docker",
-    featured: false,
   },
 ]
 
-const filters = ["all", "shipped", "in-progress", "archived"]
+const filters = ["all", "shipped", "in-progress"]
 
 export function ProjectsGrid() {
   const [activeFilter, setActiveFilter] = useState("all")
 
-  const filteredProjects = activeFilter === "all" ? projects : projects.filter((p) => p.status === activeFilter)
+  const filteredProjects =
+    activeFilter === "all" ? projects : projects.filter((p) => p.status === activeFilter)
 
   return (
     <section id="projects" className="px-4 sm:px-6 py-16 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 sm:mb-10 lg:mb-14 flex flex-col gap-4 sm:gap-6 lg:gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-3 animate-fade-in-up">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-primary">Artifacts</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight">Open Source Projects</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-primary">
+              Projects
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight">
+              AI & ML Projects
+            </h2>
           </div>
 
           <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 lg:overflow-visible lg:flex-wrap scrollbar-hide animate-fade-in-up stagger-2">
@@ -156,14 +96,14 @@ export function ProjectsGrid() {
               key={project.id}
               className={cn(
                 "group relative overflow-hidden rounded-xl border bg-card/40 p-5 sm:p-6 lg:p-7 glass transition-all duration-300 active:scale-95 active:bg-secondary/70 hover-lift hover:border-primary/40 hover:bg-card/70 animate-fade-in-up",
-                "highlight" in project && project.highlight
+                project.highlight
                   ? "sm:col-span-2 lg:col-span-2 border-primary/30 bg-gradient-to-br from-primary/8 via-card/50 to-primary/8"
                   : "border-border/60",
-                project.featured && !("highlight" in project && project.highlight) && "sm:col-span-2 lg:col-span-1",
+                project.featured && !project.highlight && "sm:col-span-2 lg:col-span-1",
               )}
               style={{ animationDelay: `${(index % 6) * 100 + 200}ms` }}
             >
-              {"highlight" in project && project.highlight && (
+              {project.highlight && (
                 <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3.5 py-1.5 animate-pulse-glow">
                   <Sparkles className="h-3.5 w-3.5 text-primary" />
                   <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-medium">
@@ -172,28 +112,29 @@ export function ProjectsGrid() {
                 </div>
               )}
 
-              {/* Status indicator */}
               <div
                 className={cn(
                   "absolute right-4 top-4 flex items-center gap-2 sm:gap-2.5",
-                  "highlight" in project && project.highlight && "top-4 sm:top-5",
+                  project.highlight && "top-4 sm:top-5",
                 )}
               >
                 <span
                   className={cn(
                     "h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full transition-shadow duration-300 flex-shrink-0",
                     project.status === "shipped" && "bg-primary shadow-sm shadow-primary/50",
-                    project.status === "in-progress" && "bg-yellow-500 animate-pulse shadow-sm shadow-yellow-500/50",
-                    project.status === "archived" && "bg-muted-foreground",
+                    project.status === "in-progress" &&
+                      "bg-yellow-500 animate-pulse shadow-sm shadow-yellow-500/50",
                   )}
                 />
-                <span className="font-mono text-[11px] sm:text-xs text-muted-foreground truncate">{project.status}</span>
+                <span className="font-mono text-[11px] sm:text-xs text-muted-foreground truncate">
+                  {project.status}
+                </span>
               </div>
 
               <div
                 className={cn(
                   "mb-4 sm:mb-5 font-mono text-xs text-muted-foreground",
-                  "highlight" in project && project.highlight && "mt-8 sm:mt-10",
+                  project.highlight && "mt-8 sm:mt-10",
                 )}
               >
                 {project.year}
@@ -202,7 +143,7 @@ export function ProjectsGrid() {
               <h3
                 className={cn(
                   "mb-2 sm:mb-3 font-bold tracking-tight transition-all duration-300 group-hover:text-gradient",
-                  "highlight" in project && project.highlight ? "text-lg sm:text-xl lg:text-2xl" : "text-base sm:text-lg",
+                  project.highlight ? "text-lg sm:text-xl lg:text-2xl" : "text-base sm:text-lg",
                 )}
               >
                 {project.title}
@@ -211,22 +152,11 @@ export function ProjectsGrid() {
               <p
                 className={cn(
                   "mb-4 sm:mb-5 text-xs sm:text-sm leading-relaxed text-muted-foreground",
-                  "highlight" in project && project.highlight ? "line-clamp-3" : "line-clamp-2",
+                  project.highlight ? "line-clamp-4" : "line-clamp-3",
                 )}
               >
                 {project.description}
               </p>
-
-              <div className="mb-4 sm:mb-5 flex items-center gap-4 sm:gap-5 font-mono text-xs text-muted-foreground">
-                <span className="flex items-center gap-1 sm:gap-1.5 transition-colors group-hover:text-yellow-500">
-                  <Star className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
-                  <span className="text-[11px] sm:text-xs">{project.stars}</span>
-                </span>
-                <span className="flex items-center gap-1 sm:gap-1.5 transition-colors group-hover:text-foreground">
-                  <GitFork className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
-                  <span className="text-[11px] sm:text-xs">{project.forks}</span>
-                </span>
-              </div>
 
               <div className="mb-4 sm:mb-5 flex flex-wrap gap-1.5 sm:gap-2">
                 {project.tags.map((tag) => (
@@ -240,26 +170,16 @@ export function ProjectsGrid() {
               </div>
 
               <div className="flex items-center gap-3 sm:gap-4">
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-mono text-[11px] sm:text-xs text-muted-foreground transition-all duration-300 active:scale-90 hover:text-primary group/link"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Github className="h-3.5 sm:h-4 w-3.5 sm:w-4 transition-transform group-hover/link:scale-110 flex-shrink-0" />
-                  <span className="underline-animate">source</span>
-                </a>
-                {project.homepage && (
+                {"url" in project && project.url && (
                   <a
-                    href={project.homepage}
+                    href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 font-mono text-[11px] sm:text-xs text-primary transition-all duration-300 active:scale-90 hover:text-foreground group/link"
+                    className="flex items-center gap-2 font-mono text-[11px] sm:text-xs text-muted-foreground transition-all duration-300 active:scale-90 hover:text-primary group/link"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <ExternalLink className="h-3.5 sm:h-4 w-3.5 sm:w-4 transition-transform group-hover/link:scale-110 group-hover/link:rotate-12 flex-shrink-0" />
-                    <span className="underline-animate">live</span>
+                    <Github className="h-3.5 sm:h-4 w-3.5 sm:w-4 transition-transform group-hover/link:scale-110 flex-shrink-0" />
+                    <span className="underline-animate">source</span>
                   </a>
                 )}
               </div>

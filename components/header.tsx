@@ -3,23 +3,22 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Github, Twitter, Linkedin } from "lucide-react"
+import { Github, Linkedin } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 import { ThemeChanger } from "./theme-changer"
 import Link from "next/link"
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  // { label: "Notes", href: "/notes" },/
-  { label: "Workbench", href: "/workbench" },
-  { label: "Blog", href: "/blog" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Workbench", href: "/#workbench" },
+  { label: "Learning Log", href: "/#notes" },
+  { label: "Contact", href: "/#connect" },
 ]
 
 const socialLinks = [
-  { label: "GitHub", href: "https://github.com/ehsanghaffar", icon: Github },
-  { label: "Twitter", href: "https://twitter.com/ehsanghaffar", icon: Twitter },
-  { label: "LinkedIn", href: "https://linkedin.com/in/ehsanghaffar", icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/ar-j-un-404", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/arjun-b-41a9ab337/", icon: Linkedin },
 ]
 
 export function Header() {
@@ -30,7 +29,7 @@ export function Header() {
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/"
-    return pathname.startsWith(href)
+    return false
   }
 
   useEffect(() => {
@@ -55,14 +54,13 @@ export function Header() {
               <span className="glitch">{"⚡"}</span>
             </div>
             <span className="font-mono text-sm tracking-tight">
-              EIN
+              AR
               <span className="bg-gradient-to-l from-primary/50 to-accent bg-clip-text text-transparent font-semibold">
-                CODE
+                JUN
               </span>
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item, index) => (
               <Link
@@ -124,9 +122,6 @@ export function Header() {
                   className="group relative flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-all duration-300 hover:text-primary hover:bg-primary/10"
                 >
                   <link.icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-card border border-border px-2.5 py-1 font-mono text-[10px] text-muted-foreground opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:-bottom-9 pointer-events-none shadow-lg">
-                    {link.label}
-                  </span>
                 </a>
               ))}
             </div>
@@ -138,7 +133,7 @@ export function Header() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
-              <span>status: building</span>
+              <span>status: learning</span>
             </div>
 
             <button
@@ -170,7 +165,6 @@ export function Header() {
           </div>
         </nav>
 
-        {/* Mobile Menu */}
         <div
           className={cn(
             " transition-all duration-400 md:hidden bg-background",
@@ -178,13 +172,12 @@ export function Header() {
           )}
         >
           <div className="flex flex-col gap-1 border-t border-border/50 pt-4">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center gap-3 rounded-lg px-4 py-3.5 font-mono text-sm uppercase tracking-widest text-muted-foreground transition-all duration-200 active:bg-secondary hover:text-foreground hover:bg-secondary/50"
-                style={{ animationDelay: `${index * 50}ms` }}
               >
                 <span className="text-primary">{">"}</span>
                 {item.label}
@@ -210,14 +203,6 @@ export function Header() {
               <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/50">
                 <ThemeToggle />
               </div>
-            </div>
-
-            <div className="mt-3 flex items-center gap-2.5 px-4 py-3 font-mono text-xs text-muted-foreground bg-secondary/30 rounded-lg mx-4 mb-2">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              <span>status: building</span>
             </div>
           </div>
         </div>

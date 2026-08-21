@@ -23,40 +23,35 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://arjun-portfolio.vercel.app"),
   title: {
-    default: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    template: "%s | EINCODE",
+    default: "ARJUN | AI & Machine Learning Portfolio",
+    template: "%s | ARJUN",
   },
   description:
-    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
-  keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
-  authors: [{ name: "Ehsan Ghaffar", url: "https://github.com/ehsanghaffar" }],
-  creator: "Ehsan Ghaffar",
-  publisher: "Ehsan Ghaffar",
-  generator: "v0.app",
+    "Personal portfolio of ARJUN, a Computer Science student focused on Artificial Intelligence, Machine Learning, and software engineering.",
+  keywords: [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "RAG",
+    "NLP",
+    "Python",
+    "LangChain",
+    "Computer Science",
+    "Semantic Search",
+    "Embeddings",
+  ],
+  authors: [{ name: "ARJUN", url: "https://github.com/ar-j-un-404" }],
+  creator: "ARJUN",
+  publisher: "ARJUN",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
-    siteName: "EINCODE",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts.",
-    creator: "@ehsanghaffar",
-    images: ["/og-image.png"],
+    title: "ARJUN | AI & Machine Learning Portfolio",
+    description:
+      "Personal portfolio of ARJUN, a Computer Science student focused on Artificial Intelligence, Machine Learning, and software engineering.",
+    siteName: "ARJUN",
   },
   robots: {
     index: true,
@@ -64,9 +59,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   icons: {
