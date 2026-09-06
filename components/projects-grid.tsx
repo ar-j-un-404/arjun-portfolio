@@ -22,6 +22,7 @@ const projects = [
   status: "shipped",
   year: "Learning",
   featured: true,
+  highlight: true,
   url: "https://github.com/ar-j-un-404/personalized-study-path-generator",
 },
   {
@@ -33,7 +34,6 @@ const projects = [
     status: "in-progress",
     year: "Learning",
     featured: true,
-    highlight: true,
     url: "https://github.com/ar-j-un-404/RAG-OVER-A--CODEBASE",  // <-- Added
   },
   {
