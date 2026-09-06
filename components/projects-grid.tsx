@@ -6,7 +6,26 @@ import { Github, Sparkles } from "lucide-react"
 
 const projects = [
   {
-    id: 0,
+  id: 0,
+  title: "Personalized Study Path Generator",
+  description:
+    "An AI-assisted study planning system that creates personalized schedules based on subjects, topics, knowledge level, difficulty, priority, exam dates, and available study time. It includes priority-based allocation, revision planning, progress tracking, dynamic replanning, JSON persistence, and local LLM assistance using Ollama.",
+  tags: [
+    "Python",
+    "Ollama",
+    "Qwen3:4B",
+    "LangChain",
+    "JSON",
+    "Scheduling",
+    "AI"
+  ],
+  status: "shipped",
+  year: "Learning",
+  featured: true,
+  url: "https://github.com/ar-j-un-404/personalized-study-path-generator",
+},
+  {
+    id: 1,
     title: "RAG Over Codebase",
     description:
       "A Retrieval-Augmented Generation application that allows users to understand and interact with a codebase using natural language. The system processes source code, creates embeddings, retrieves relevant code context, and uses a language model to answer questions about the codebase.",
@@ -18,7 +37,7 @@ const projects = [
     url: "https://github.com/ar-j-un-404/RAG-OVER-A--CODEBASE",  // <-- Added
   },
   {
-    id: 1,
+    id: 2,
     title: "AI Lecture Slide Tutor",
     description:
       "An AI-powered learning assistant that helps students interact with lecture slides and study material. The project uses document processing, embeddings, semantic search, vector databases, and language models to answer questions based on uploaded content.",
@@ -29,7 +48,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "Exam Question Predictor",
     description:
       "An AI-based system that analyzes previous exam question papers to identify frequently repeated and semantically similar questions. It extracts questions from PDFs, generates embeddings using Sentence Transformers, calculates cosine similarity, groups similar questions, and identifies recurring topics.",
@@ -40,7 +59,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "AI PDF Tutor",
     description:
       "An AI-powered PDF question-answering application that allows users to interact with study documents. It combines PDF text extraction, sentence embeddings, semantic retrieval, and a local language model to provide context-aware answers.",
