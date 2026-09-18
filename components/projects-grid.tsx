@@ -6,7 +6,30 @@ import { Github, Sparkles } from "lucide-react"
 
 const projects = [
   {
-    id: 0,
+    {
+  id: 0,
+  title: "AI Software Engineer",
+  description:
+    "An AI-powered software engineering agent that can analyze local codebases, retrieve relevant code, create implementation plans, generate and apply code patches, run tests, debug failures, review Git changes, create commits, and push updates to GitHub. It uses semantic and lexical code retrieval, structured planning, patch validation, multiple coding-model fallbacks through OpenRouter, and local Ollama support when cloud models are unavailable.",
+  tags: [
+    "Python",
+    "Streamlit",
+    "AI Agents",
+    "Code Generation",
+    "RAG",
+    "Sentence Transformers",
+    "OpenRouter",
+    "Ollama",
+    "Git",
+    "GitHub",
+  ],
+  status: "in-progress",
+  year: "2026",
+  featured: true,
+  highlight: true,
+  url: "https://github.com/ar-j-un-404/AI-SWE",
+},
+    id: 1,
     title: "Contract & Document Comparator",
     description:
       "A real-world document AI tool built to reduce the time and errors involved in manually comparing different versions of contracts. It detects added, removed, modified, and unchanged clauses, highlights important changes such as payment terms, liability amounts, dates, notice periods, and obligations, assigns simple risk levels, and provides AI-generated explanations and contract Q&A. I also used AI assistance to build and refine the simple Streamlit UI while focusing mainly on the document-processing, semantic matching, and AI logic.",
@@ -28,7 +51,7 @@ const projects = [
   },
 
   {
-    id: 1,
+    id: 2,
     title: "Personalized Study Path Generator",
     description:
       "An AI-assisted study planning system that creates personalized schedules based on subjects, topics, knowledge level, difficulty, priority, exam dates, and available study time. It includes priority-based allocation, revision planning, progress tracking, dynamic replanning, JSON persistence, and local LLM assistance using Ollama.",
@@ -49,7 +72,7 @@ const projects = [
   },
 
   {
-    id: 2,
+    id: 3,
     title: "RAG Over Codebase",
     description:
       "A Retrieval-Augmented Generation application that allows users to understand and interact with a codebase using natural language. The system processes source code, creates embeddings, retrieves relevant code context, and uses a language model to answer questions about the codebase.",
@@ -70,7 +93,7 @@ const projects = [
   },
 
   {
-    id: 3,
+    id: 4,
     title: "AI Lecture Slide Tutor",
     description:
       "An AI-powered learning assistant that helps students interact with lecture slides and study material. The project uses document processing, embeddings, semantic search, vector databases, and language models to answer questions based on uploaded content.",
@@ -90,7 +113,7 @@ const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Exam Question Predictor",
     description:
       "An AI-based system that analyzes previous exam question papers to identify frequently repeated and semantically similar questions. It extracts questions from PDFs, generates embeddings using Sentence Transformers, calculates cosine similarity, groups similar questions, and identifies recurring topics.",
@@ -108,7 +131,7 @@ const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "AI PDF Tutor",
     description:
       "An AI-powered PDF question-answering application that allows users to interact with study documents. It combines PDF text extraction, sentence embeddings, semantic retrieval, and a local language model to provide context-aware answers.",
