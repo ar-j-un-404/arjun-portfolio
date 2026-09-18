@@ -6,29 +6,30 @@ import { Github, Sparkles } from "lucide-react"
 
 const projects = [
   {
-    {
-  id: 0,
-  title: "AI Software Engineer",
-  description:
-    "An AI-powered software engineering agent that can analyze local codebases, retrieve relevant code, create implementation plans, generate and apply code patches, run tests, debug failures, review Git changes, create commits, and push updates to GitHub. It uses semantic and lexical code retrieval, structured planning, patch validation, multiple coding-model fallbacks through OpenRouter, and local Ollama support when cloud models are unavailable.",
-  tags: [
-    "Python",
-    "Streamlit",
-    "AI Agents",
-    "Code Generation",
-    "RAG",
-    "Sentence Transformers",
-    "OpenRouter",
-    "Ollama",
-    "Git",
-    "GitHub",
-  ],
-  status: "in-progress",
-  year: "2026",
-  featured: true,
-  highlight: true,
-  url: "https://github.com/ar-j-un-404/AI-SWE",
-},
+    id: 0,
+    title: "AI Software Engineer",
+    description:
+      "An AI-powered software engineering agent that can analyze local codebases, retrieve relevant code, create implementation plans, generate and apply code patches, run tests, debug failures, review Git changes, create commits, and push updates to GitHub. It uses semantic and lexical code retrieval, structured planning, patch validation, multiple coding-model fallbacks through OpenRouter, and local Ollama support when cloud models are unavailable.",
+    tags: [
+      "Python",
+      "Streamlit",
+      "AI Agents",
+      "Code Generation",
+      "RAG",
+      "Sentence Transformers",
+      "OpenRouter",
+      "Ollama",
+      "Git",
+      "GitHub",
+    ],
+    status: "in-progress",
+    year: "2026",
+    featured: true,
+    highlight: true,
+    url: "https://github.com/ar-j-un-404/AI-SWE",
+  },
+
+  {
     id: 1,
     title: "Contract & Document Comparator",
     description:
@@ -46,29 +47,8 @@ const projects = [
     status: "shipped",
     year: "2026",
     featured: true,
-    highlight: true,
-    url: "https://github.com/ar-j-un-404/-contract-document-comparator",
-  },
-
-  {
-    id: 2,
-    title: "Personalized Study Path Generator",
-    description:
-      "An AI-assisted study planning system that creates personalized schedules based on subjects, topics, knowledge level, difficulty, priority, exam dates, and available study time. It includes priority-based allocation, revision planning, progress tracking, dynamic replanning, JSON persistence, and local LLM assistance using Ollama.",
-    tags: [
-      "Python",
-      "Ollama",
-      "Qwen3:4B",
-      "LangChain",
-      "JSON",
-      "Scheduling",
-      "AI"
-    ],
-    status: "shipped",
-    year: "Learning",
-    featured: true,
     highlight: false,
-    url: "https://github.com/ar-j-un-404/personalized-study-path-generator",
+    url: "https://github.com/ar-j-un-404/-contract-document-comparator",
   },
 
   {
