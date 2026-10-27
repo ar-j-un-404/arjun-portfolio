@@ -48,7 +48,7 @@ const projects = [
     status: "in-progress",
     year: "2026",
     featured: true,
-    highlight: true,
+    highlight: false,
     url: "https://github.com/ar-j-un-404/AI-SWE",
   },
 
