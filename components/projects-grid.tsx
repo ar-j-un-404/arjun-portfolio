@@ -5,8 +5,31 @@ import { cn } from "@/lib/utils"
 import { Github, Sparkles } from "lucide-react"
 
 const projects = [
-  {
+  
+     {
     id: 0,
+    title: "BrainTumor AI",
+    description:
+      "A brain MRI research application combining 2D U-Net and 3D nnU-Net segmentation with separate 2D slice views and interactive 3D tumor visualization. Users can rotate and zoom tumor regions, adjust transparency, inspect MRI overlays, measure predicted tumor volumes, and export analysis reports. Includes model comparisons and exploratory tumor-versus-healthy classification. Research prototype; not clinically validated.",
+    tags: [
+      "Python",
+      "PyTorch",
+      "nnU-Net",
+      "Medical Imaging",
+      "MRI Segmentation",
+      "3D Visualization",
+      "Streamlit",
+      "Plotly",
+    ],
+    status: "in-progress",
+    year: "2026",
+    featured: true,
+    highlight: true,
+    url: "https://github.com/ar-j-un-404/AI-BRAIN-TUMOR",
+  },
+
+  {
+    id: 1,
     title: "AI Software Engineer",
     description:
       "An AI-powered software engineering agent that can analyze local codebases, retrieve relevant code, create implementation plans, generate and apply code patches, run tests, debug failures, review Git changes, create commits, and push updates to GitHub. It uses semantic and lexical code retrieval, structured planning, patch validation, multiple coding-model fallbacks through OpenRouter, and local Ollama support when cloud models are unavailable.",
@@ -30,7 +53,7 @@ const projects = [
   },
 
   {
-    id: 1,
+    id: 2,
     title: "Contract & Document Comparator",
     description:
       "A real-world document AI tool built to reduce the time and errors involved in manually comparing different versions of contracts. It detects added, removed, modified, and unchanged clauses, highlights important changes such as payment terms, liability amounts, dates, notice periods, and obligations, assigns simple risk levels, and provides AI-generated explanations and contract Q&A. I also used AI assistance to build and refine the simple Streamlit UI while focusing mainly on the document-processing, semantic matching, and AI logic.",
